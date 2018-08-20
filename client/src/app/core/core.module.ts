@@ -7,17 +7,12 @@ import { ToasterService } from 'angular2-toaster';
 import { FoodDataService } from './data-services/food-data.service';
 import { HttpWrapperService } from './data-services/httpWrapper.service';
 import { IngredientsDataService } from './data-services/ingredient-data.service';
-import {
-  AuthorizationInterceptor,
-  StandardHeaderInterceptor,
-} from './interceptors';
-import { AuthenticationService } from './services/authentication.service';
+import { StandardHeaderInterceptor } from './interceptors';
 import {
   AbstractCameraService,
   cameraFactory,
 } from './services/camera.service';
 import { CpuValueService } from './services/cpuValue.service';
-import { CurrentUserService } from './services/currentUser.service';
 import { DesktopNotificationService } from './services/desktopNotification.service';
 import { AbstractNotificationService } from './services/notification.service';
 import { PlatformInformationProvider } from './services/platformInformation.provider';
@@ -55,10 +50,8 @@ export class CoreModule {
         FoodDataService,
         IngredientsDataService,
         Sorter,
-        AuthenticationService,
         HttpWrapperService,
         StorageService,
-        CurrentUserService,
         SignalRService,
         PlatformInformationProvider,
         CpuValueService,
@@ -70,11 +63,6 @@ export class CoreModule {
         {
           provide: AbstractCameraService,
           useFactory: cameraFactory,
-        },
-        {
-          provide: HTTP_INTERCEPTORS,
-          useClass: AuthorizationInterceptor,
-          multi: true,
         },
         {
           provide: HTTP_INTERCEPTORS,
