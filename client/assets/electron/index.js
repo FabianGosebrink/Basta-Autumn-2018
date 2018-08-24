@@ -13,12 +13,13 @@ app.on('window-all-closed', function() {
   }
 });
 
-app.setAppUserModelId('eMeal');
+app.setAppUserModelId('emeal');
+app.setAsDefaultProtocolClient('emeal');
 
 app.on('ready', function() {
   mainWindow = new BrowserWindow({
     width: 1024,
-    height: 768
+    height: 768,
   });
 
   mainWindow.loadURL('file://' + __dirname + '/index.html');

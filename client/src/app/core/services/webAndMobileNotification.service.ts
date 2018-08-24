@@ -2,10 +2,12 @@ import { Injectable } from '@angular/core';
 import { ToasterService } from 'angular2-toaster';
 import {
   AbstractNotificationService,
-  MessageType
+  MessageType,
 } from './notification.service';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class WebAndMobileNotificationService
   implements AbstractNotificationService {
   constructor(private toasterService: ToasterService) {}
