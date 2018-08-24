@@ -6,9 +6,9 @@ import { AbstractNotificationServiceStub } from '../../../testing/abstractNotifi
 import { CpuValueServiceMock } from '../../../testing/CpuValueServiceMock';
 import { FoodServiceMock } from '../../../testing/foodServiceMock';
 import { FoodDataService } from '../../core/data-services/food-data.service';
-import { AbstractCameraService } from '../../core/services/camera.service';
+import { AbstractCameraService } from '../../core/services/abstract-camera.service';
+import { AbstractNotificationService } from '../../core/services/abstract-notification.service';
 import { CpuValueService } from '../../core/services/cpuValue.service';
-import { AbstractNotificationService } from '../../core/services/notification.service';
 import { PlatformInformationProvider } from '../../core/services/platformInformation.provider';
 import { FoodItem } from '../../shared/models/foodItem.model';
 import { EMealFooterComponent } from '../footer/eMeal-footer.component';

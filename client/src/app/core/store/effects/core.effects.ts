@@ -2,10 +2,7 @@ import { Injectable } from '@angular/core';
 import { Actions, Effect } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
-import {
-  AbstractNotificationService,
-  MessageType,
-} from '../../services/notification.service';
+import { AbstractNotificationService } from '../../services/abstract-notification.service';
 import { SignalRService } from '../../services/signalR.service';
 import * as CoreActions from '../actions/core.actions';
 
@@ -18,19 +15,14 @@ export class CoreEffects {
       switchMap((action: CoreActions.SignalREstablishConnectionAction) => {
         return this.signalRService.initializeConnection().pipe(
           tap(() =>
-            this.notificationService.showNotification(
-              MessageType.Info,
+            this.notificationService.showInfo(
               'SignalR',
               'Connection established'
             )
           ),
           map(() => new CoreActions.SignalREstablishedAction()),
           catchError((error: any) => {
-            this.notificationService.showNotification(
-              MessageType.Error,
-              'SignalR',
-              error
-            );
+            this.notificationService.showError('SignalR', error);
             return of(new CoreActions.SignalRFailedAction(error));
           })
         );
