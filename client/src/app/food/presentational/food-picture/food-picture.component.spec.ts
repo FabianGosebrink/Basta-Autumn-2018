@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AbstractCameraService } from '../../../core/services/abstract-camera.service';
-import { MobileCameraService } from '../../../core/services/mobileCamera.service';
+import { MobileCameraService } from '../../../core/services/mobile-camera.service';
 import { FoodPictureComponent } from './food-picture.component';
 
 describe('FoodPictureComponent', () => {
@@ -11,8 +11,8 @@ describe('FoodPictureComponent', () => {
     TestBed.configureTestingModule({
       declarations: [FoodPictureComponent],
       providers: [
-        { provide: AbstractCameraService, useClass: MobileCameraService }
-      ]
+        { provide: AbstractCameraService, useClass: MobileCameraService },
+      ],
     }).compileComponents();
   }));
 

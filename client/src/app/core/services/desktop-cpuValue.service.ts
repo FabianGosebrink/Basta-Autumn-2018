@@ -1,6 +1,6 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { ElectronService } from 'ngx-electron';
-import { PlatformInformationProvider } from './platformInformation.provider';
+import { PlatformInformationProvider } from './platform-information.provider';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +12,7 @@ export class CpuValueService {
     private electronService: ElectronService,
     private platformInformationProvider: PlatformInformationProvider
   ) {
-    if (platformInformationProvider.isElectron) {
+    if (this.platformInformationProvider.isElectron) {
       this.registerCpuEvent();
     }
   }

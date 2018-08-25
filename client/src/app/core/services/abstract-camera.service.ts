@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { DesktopCameraService } from './desktopCamera.service';
-import { MobileCameraService } from './mobileCamera.service';
-import { PlatformInformationProvider } from './platformInformation.provider';
+import { DesktopCameraService } from './desktop-camera.service';
+import { MobileCameraService } from './mobile-camera.service';
+import { PlatformInformationProvider } from './platform-information.provider';
 
 export function cameraFactory(
   platformProvider: PlatformInformationProvider

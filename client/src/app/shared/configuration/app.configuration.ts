@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ToasterConfig } from 'angular2-toaster';
-import { PlatformInformationProvider } from '../../core/services/platformInformation.provider';
+import { PlatformInformationProvider } from '../../core/services/platform-information.provider';
 
 @Injectable({ providedIn: 'root' })
 export class Configuration {

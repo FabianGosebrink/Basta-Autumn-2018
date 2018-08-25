@@ -9,8 +9,8 @@ import { FoodServiceMock } from '../../../testing/foodServiceMock';
 import { FoodDataService } from '../../core/data-services/food-data.service';
 import { AbstractCameraService } from '../../core/services/abstract-camera.service';
 import { AbstractNotificationService } from '../../core/services/abstract-notification.service';
-import { CpuValueService } from '../../core/services/cpuValue.service';
-import { PlatformInformationProvider } from '../../core/services/platformInformation.provider';
+import { CpuValueService } from '../../core/services/desktop-cpuValue.service';
+import { PlatformInformationProvider } from '../../core/services/platform-information.provider';
 import { FoodItem } from '../../shared/models/foodItem.model';
 import * as fromRootStore from '../../store';
 import { EMealFooterComponent } from '../footer/eMeal-footer.component';
@@ -32,29 +32,29 @@ describe('HomeComponent', () => {
         RouterTestingModule,
         StoreModule.forRoot({
           ...fromRootStore.reducers,
-          home: combineReducers(fromHomeStore.reducers)
-        })
+          home: combineReducers(fromHomeStore.reducers),
+        }),
       ],
       declarations: [
         HomeComponent,
         RandomMealComponent,
         SingleMealComponent,
-        EMealFooterComponent
+        EMealFooterComponent,
       ],
       providers: [
         { provide: HomeStoreFacade, useClass: HomeStoreFacade },
         { provide: FoodDataService, useClass: FoodServiceMock },
         {
           provide: AbstractNotificationService,
-          useClass: AbstractNotificationServiceStub
+          useClass: AbstractNotificationServiceStub,
         },
         { provide: CpuValueService, useClass: CpuValueServiceMock },
         {
           provide: AbstractCameraService,
-          useClass: AbstractCameraServiceStub
+          useClass: AbstractCameraServiceStub,
         },
-        PlatformInformationProvider
-      ]
+        PlatformInformationProvider,
+      ],
     }).compileComponents(); // compile template and css
   }));
 

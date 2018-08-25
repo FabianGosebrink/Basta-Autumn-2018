@@ -1,8 +1,7 @@
 import { ToasterService } from 'angular2-toaster';
 import { AbstractNotificationService } from './abstract-notification.service';
 
-export class WebAndMobileNotificationService
-  implements AbstractNotificationService {
+export class WebNotificationService implements AbstractNotificationService {
   constructor(private toasterService: ToasterService) {}
 
   showError(title: string, message: string, icon?: string) {
