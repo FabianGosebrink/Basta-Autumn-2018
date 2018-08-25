@@ -6,23 +6,23 @@ export class WebAndMobileNotificationService
   constructor(private toasterService: ToasterService) {}
 
   showError(title: string, message: string, icon?: string) {
-    this.showNotification('Error', title, message, icon);
+    this.showNotification('error', title, message, icon);
   }
 
   showInfo(title: string, message: string, icon?: string) {
-    this.showNotification('Info', title, message, icon);
+    this.showNotification('info', title, message, icon);
   }
 
   showWait(title: string, message: string, icon?: string) {
-    this.showNotification('Wait', title, message, icon);
+    this.showNotification('wait', title, message, icon);
   }
 
   showSuccess(title: string, message: string, icon?: string) {
-    this.showNotification('Success', title, message, icon);
+    this.showNotification('success', title, message, icon);
   }
 
   showWarning(title: string, message: string, icon?: string) {
-    this.showNotification('Warning', title, message, icon);
+    this.showNotification('warning', title, message, icon);
   }
 
   private showNotification(

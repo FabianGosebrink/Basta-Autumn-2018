@@ -1,4 +1,4 @@
-import { EventEmitter, Injectable, NgZone } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { ElectronService } from 'ngx-electron';
 import { PlatformInformationProvider } from './platformInformation.provider';
 
@@ -10,7 +10,6 @@ export class CpuValueService {
 
   constructor(
     private electronService: ElectronService,
-    private ngZone: NgZone,
     private platformInformationProvider: PlatformInformationProvider
   ) {
     if (platformInformationProvider.isElectron) {
