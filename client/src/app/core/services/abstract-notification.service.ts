@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ToasterService } from 'angular2-toaster';
+import { MobileNotificationService } from './mobile-notification.service';
 import { PlatformInformationProvider } from './platform-information.provider';
 import { WebNotificationService } from './web-notification.service';
 
@@ -11,13 +12,18 @@ export function notificationFactory(
     // return new DesktopNotificationService();
     return new WebNotificationService(toasterService);
   }
+
+  if (platformProvider.isMobileDevice) {
+    return new MobileNotificationService();
+  }
+
   return new WebNotificationService(toasterService);
 }
 
 @Injectable({
   providedIn: 'root',
   useFactory: notificationFactory,
-  deps: [ToasterService, PlatformInformationProvider],
+  deps: [ToasterService, PlatformInformationProvider]
 })
 export abstract class AbstractNotificationService
   implements INotificationService {
