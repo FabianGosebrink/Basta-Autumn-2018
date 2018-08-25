@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { ToasterService } from 'angular2-toaster';
-import { DesktopNotificationService } from './desktopNotification.service';
 import { PlatformInformationProvider } from './platformInformation.provider';
 import { WebAndMobileNotificationService } from './webAndMobileNotification.service';
 
@@ -9,7 +8,8 @@ export function notificationFactory(
   platformProvider: PlatformInformationProvider
 ): AbstractNotificationService {
   if (platformProvider.isElectron) {
-    return new DesktopNotificationService();
+    // return new DesktopNotificationService();
+    return new WebAndMobileNotificationService(toasterService);
   }
   return new WebAndMobileNotificationService(toasterService);
 }
