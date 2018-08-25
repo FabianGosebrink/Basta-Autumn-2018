@@ -6,7 +6,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { EffectsModule } from '@ngrx/effects';
 import {
   RouterStateSerializer,
-  StoreRouterConnectingModule
+  StoreRouterConnectingModule,
 } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { ToasterModule } from 'angular2-toaster';
@@ -26,7 +26,7 @@ import { CustomSerializer, reducers } from './store';
     ToasterModule.forRoot(),
     RouterModule.forRoot(AppRoutes, {
       useHash: true,
-      preloadingStrategy: PreloadAllModules
+      preloadingStrategy: PreloadAllModules,
     }),
     SharedModule,
     NgxElectronModule,
@@ -36,12 +36,12 @@ import { CustomSerializer, reducers } from './store';
     EffectsModule.forRoot([]),
     StoreRouterConnectingModule,
     ServiceWorkerModule.register('/ngsw-worker.js', {
-      enabled: environment.production
-    })
+      enabled: environment.production,
+    }),
   ],
   providers: [{ provide: RouterStateSerializer, useClass: CustomSerializer }],
   declarations: [AppComponent],
 
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
