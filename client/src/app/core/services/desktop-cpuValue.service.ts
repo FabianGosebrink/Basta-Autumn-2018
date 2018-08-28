@@ -1,18 +1,15 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { ElectronService } from 'ngx-electron';
-import { PlatformInformationProvider } from './platform-information.provider';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class CpuValueService {
   onNewCpuValue = new EventEmitter<string>();
 
-  constructor(
-    private electronService: ElectronService,
-    private platformInformationProvider: PlatformInformationProvider
-  ) {
-    if (this.platformInformationProvider.isElectron) {
+  constructor(private electronService: ElectronService) {
+    if (environment.desktop) {
       this.registerCpuEvent();
     }
   }

@@ -5,6 +5,8 @@
 
 export const environment = {
   production: false,
+  mobile: false,
+  desktop: false,
   server: 'https://conference-xplatform-server.azurewebsites.net/',
-  apiUrl: 'api/',
+  apiUrl: 'api/'
 };

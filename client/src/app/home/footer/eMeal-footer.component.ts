@@ -1,17 +1,20 @@
 import { Component, NgZone } from '@angular/core';
+import { environment } from '../../../environments/environment';
 import { CpuValueService } from '../../core/services/desktop-cpuValue.service';
-import { PlatformInformationProvider } from '../../core/services/platform-information.provider';
 
 @Component({
   selector: 'app-emeal-footer',
-  templateUrl: 'eMeal-footer.component.html',
+  templateUrl: 'eMeal-footer.component.html'
 })
 export class EMealFooterComponent {
   percentage: number;
 
+  get currentEnvironment() {
+    return environment;
+  }
+
   constructor(
     private cpuValueService: CpuValueService,
-    public platformInformationProvider: PlatformInformationProvider,
     private ngZone: NgZone
   ) {
     this.cpuValueService.onNewCpuValue.subscribe((cpuValue: number) => {
