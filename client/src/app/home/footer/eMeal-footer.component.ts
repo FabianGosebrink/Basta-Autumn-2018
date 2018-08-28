@@ -1,6 +1,7 @@
 import { Component, NgZone } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { CpuValueService } from '../../core/services/desktop-cpuValue.service';
+import { PlatformInformationProvider } from '../../core/services/platform-information.provider';
 
 @Component({
   selector: 'app-emeal-footer',
@@ -14,6 +15,7 @@ export class EMealFooterComponent {
   }
 
   constructor(
+    public platformInformationProvider: PlatformInformationProvider,
     private cpuValueService: CpuValueService,
     private ngZone: NgZone
   ) {
