@@ -22,7 +22,7 @@ export function notificationFactory(
 @Injectable({
   providedIn: 'root',
   useFactory: notificationFactory,
-  deps: [ToasterService]
+  deps: [ToasterService],
 })
 export abstract class AbstractNotificationService
   implements INotificationService {

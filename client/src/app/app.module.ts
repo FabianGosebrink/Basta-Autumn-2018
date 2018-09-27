@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PreloadAllModules, RouterModule } from '@angular/router';
-import { ServiceWorkerModule } from '@angular/service-worker';
 import { EffectsModule } from '@ngrx/effects';
 import {
   RouterStateSerializer,
@@ -11,7 +10,6 @@ import {
 import { StoreModule } from '@ngrx/store';
 import { ToasterModule } from 'angular2-toaster';
 import { NgxElectronModule } from 'ngx-electron';
-import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routes';
 import { CoreModule } from './core/core.module';
@@ -35,9 +33,6 @@ import { CustomSerializer, reducers } from './store';
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([]),
     StoreRouterConnectingModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', {
-      enabled: environment.production,
-    }),
   ],
   providers: [{ provide: RouterStateSerializer, useClass: CustomSerializer }],
   declarations: [AppComponent],

@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 
+declare let window: any;
+
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PlatformInformationProvider {
   private _iOS: boolean;
@@ -20,16 +22,14 @@ export class PlatformInformationProvider {
   }
 
   get userAgent(): boolean {
-    return this.getWindow().navigator.userAgent;
+    return window.navigator.userAgent;
   }
 
   get platformName(): any {
-    if (!this.getWindow().device) {
-      return '';
+    if (!window.device) {
+      return 'No window.device';
     }
-    return `${this.getWindow().device.platform} ${
-      this.getWindow().device.model
-    }`;
+    return `${window.device.platform} ${window.device.model}`;
   }
 
   constructor() {
@@ -37,14 +37,7 @@ export class PlatformInformationProvider {
   }
 
   private guessPlatform(): void {
-    this._iOS =
-      this.getWindow().cordova && this.getWindow().cordova.platformId === 'ios';
-    this._isAndroid =
-      this.getWindow().cordova &&
-      this.getWindow().cordova.platformId === 'android';
-  }
-
-  private getWindow(): any {
-    return window;
+    this._iOS = window.cordova && window.cordova.platformId === 'ios';
+    this._isAndroid = window.cordova && window.cordova.platformId === 'android';
   }
 }

@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
 import { ToasterConfig } from 'angular2-toaster';
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class Configuration {
-  constructor() {}
-
   title = 'eMeal';
 
+  authConfig = {
+    CLIENT_ID: 'AngularFoodClient',
+    GRANT_TYPE: 'password',
+    SCOPE: 'WebAPI'
+  };
+
   toasterConfig: ToasterConfig = new ToasterConfig({
-    positionClass: 'toast-bottom-right',
+    positionClass: 'toast-bottom-right'
   });
 }

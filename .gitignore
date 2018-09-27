@@ -11,3 +11,4 @@ server/ASP.NETCore/src/FoodAPICore/Properties/PublishProfiles/
 /server/ASP.NETCore/FoodAPICore/obj/
 /server/ASP.NETCore/FoodAPICore/bin/
 /server/ASP.NETCore/FoodAPICore/Properties/PublishProfiles
+/server/ASP.NETCore/src/FoodAPICore/.vscode/launch.json

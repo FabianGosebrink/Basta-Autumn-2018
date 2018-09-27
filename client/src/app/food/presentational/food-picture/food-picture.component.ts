@@ -5,7 +5,7 @@ import { FoodItem } from '../../../shared/models/foodItem.model';
 @Component({
   selector: 'app-food-picture',
   templateUrl: './food-picture.component.html',
-  styleUrls: ['./food-picture.component.css']
+  styleUrls: ['./food-picture.component.css'],
 })
 export class FoodPictureComponent {
   @Input()

@@ -7,7 +7,12 @@ export const getCompleteCoreState = createSelector(
   (state: fromFeature.CoreState) => state.core
 );
 
-export const getSignalRConnectionEstablished = createSelector(
+export const getIsAuthenticated = createSelector(
   getCompleteCoreState,
-  fromCore.getSignalRConnectionEstablished
+  fromCore.getIsAuthenticated
+);
+
+export const getPending = createSelector(
+  getCompleteCoreState,
+  fromCore.getPending
 );

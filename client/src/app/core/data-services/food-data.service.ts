@@ -5,9 +5,7 @@ import { environment } from '../../../environments/environment';
 import { FoodItem } from '../../shared/models/foodItem.model';
 import { HttpWrapperService } from './httpWrapper.service';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable({ providedIn: 'root' })
 export class FoodDataService {
   private actionUrl: string;
 

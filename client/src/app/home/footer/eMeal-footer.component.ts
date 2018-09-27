@@ -5,21 +5,29 @@ import { PlatformInformationProvider } from '../../core/services/platform-inform
 
 @Component({
   selector: 'app-emeal-footer',
-  templateUrl: 'eMeal-footer.component.html'
+  templateUrl: 'eMeal-footer.component.html',
 })
 export class EMealFooterComponent {
-  percentage: number;
+  percentage: string;
 
   get currentEnvironment() {
     return environment;
   }
 
+  get platformName() {
+    return this.platformInformationProvider.platformName;
+  }
+
+  get userAgent() {
+    return this.platformInformationProvider.userAgent;
+  }
+
   constructor(
-    public platformInformationProvider: PlatformInformationProvider,
+    private platformInformationProvider: PlatformInformationProvider,
     private cpuValueService: CpuValueService,
     private ngZone: NgZone
   ) {
-    this.cpuValueService.onNewCpuValue.subscribe((cpuValue: number) => {
+    this.cpuValueService.onNewCpuValue.subscribe((cpuValue: string) => {
       this.ngZone.run(() => {
         this.percentage = cpuValue;
       });
